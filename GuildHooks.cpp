@@ -76,7 +76,7 @@ void Eluna::OnMemberWitdrawMoney(Guild* guild, Player* player, uint32& amount, b
     Push(guild);
     Push(player);
     Push(amount);
-    Push(isRepair); // isRepair not a part of Mangos, implement?
+    Push(isRepair ? 1 : 0); // isRepair not a part of Mangos, implement?
     int amountIndex = lua_gettop(L) - 1;
     int n = SetupStack(GuildEventBindings, key, 4);
 

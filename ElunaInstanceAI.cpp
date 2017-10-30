@@ -38,7 +38,7 @@ void ElunaInstanceAI::Load(const char* data)
         lastSaveData.assign(data);
     }
 
-    if (data[0] == '\0' || data[0] == '0')
+    if (data[0] == '\0' )
     {
         ASSERT(!sEluna->HasInstanceData(instance));
 

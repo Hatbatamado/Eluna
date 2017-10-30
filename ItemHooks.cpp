@@ -59,6 +59,11 @@ bool Eluna::OnUse(Player* pPlayer, Item* pItem, SpellCastTargets const& targets)
     if (pItem && castSpell)
         return true;
 
+    // This item should NOT be the item on the header's slot.
+    if (pItem == pPlayer->getFirstItemOnSlot(SLOT_HEAD) {
+        return false;
+    }
+
     // Send equip error that shows no message
     // This is a hack fix to stop spell casting visual bug when a spell is not cast on use
     WorldPacket data(SMSG_INVENTORY_CHANGE_FAILURE, 18);

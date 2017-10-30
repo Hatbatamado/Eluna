@@ -70,7 +70,7 @@ void Eluna::HandleGossipSelectOption(Player* pPlayer, uint32 menuId, uint32 send
     Push(pPlayer); // sender, just not to mess up the amount of args.
     Push(sender);
     Push(action);
-    if (code.empty())
+    if (code..length() < 2)
         Push();
     else
         Push(code);

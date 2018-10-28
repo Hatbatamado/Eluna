@@ -166,6 +166,17 @@ namespace LuaMap
     }
 
     /**
+     * Returns the player count currently on the [Map] (including GMs).
+     *
+     * @return uint32 playerCount
+     */
+    int GetAllPlayerCount(lua_State* L, Map* map)
+    {
+        Eluna::Push(L, map->GetPlayersCount());
+        return 1;
+    }
+
+    /**
      * Returns the ID of the [Map].
      *
      * @return uint32 mapId

@@ -224,7 +224,7 @@ void Eluna::OnExpire(AuctionHouseObject* /*ah*/, AuctionEntry* entry)
 #endif
 
 
-    if (!owner || !item)
+    if (!owner || !item || !-item->IsInWorld())
         return;
 
     START_HOOK(AUCTION_EVENT_ON_EXPIRE);

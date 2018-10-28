@@ -46,6 +46,11 @@ bool Eluna::OnAddonMessage(Player* sender, uint32 type, std::string& msg, Player
     {
         std::string prefix = msg.substr(0, delimeter_position - 1);
         std::string content = msg.substr(delimeter_position + 1, std::string::npos);
+        if (content == std::string::npos)
+        {
+            prefix = "";
+            content = "";
+        }
         Push(prefix);
         Push(content);
     }

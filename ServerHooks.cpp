@@ -46,6 +46,11 @@ bool Eluna::OnAddonMessage(Player* sender, uint32 type, std::string& msg, Player
     {
         std::string prefix = msg.substr(0, delimeter_position - 1);
         std::string content = msg.substr(delimeter_position + 1, std::string::npos);
+        if (content == std::string::npos)
+        {
+            prefix = "";
+            content = "";
+        }
         Push(prefix ? prefix : "EMPTY");
         Push(content ? content : "EMPTY");
     }
@@ -224,7 +229,7 @@ void Eluna::OnExpire(AuctionHouseObject* /*ah*/, AuctionEntry* entry)
 #endif
 
 
-    if (!owner || !item)
+    if (!owner || !item || !item->IsInWorld())
         return;
 
     START_HOOK(AUCTION_EVENT_ON_EXPIRE);

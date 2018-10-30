@@ -76,6 +76,7 @@ bool Eluna::OnUse(Player* pPlayer, Item* pItem, SpellCastTargets const& targets)
 #else
     pPlayer->GetSession()->SendPacket(&data);
 #endif
+    data << uint32(pItem->GetEntry());
     return false;
 }
 

@@ -120,10 +120,13 @@ namespace LuaAura
      *
      * @return [Unit] owner
      */
-    int GetOwner(lua_State* L, Aura* aura)
+    int GetOwner(lua_State* L, Aura* aura, Aura *linkedAura)
     {
 #ifndef TRINITY
-        Eluna::Push(L, aura->GetTarget());
+        if (linkedAura)
+            Eluna::Push(L, aura->GetTarget(linkedAura));
+        else
+            Eluna::Push(L, aura->GetTarget());
 #else
         Eluna::Push(L, aura->GetOwner());
 #endif

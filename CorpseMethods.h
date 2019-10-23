@@ -30,6 +30,17 @@ namespace LuaCorpse
     }
 
     /**
+     * Returns the [Corpse]'s owner [Unit].
+     *
+     * @return Unit* owner
+     */
+    int GetOwner(lua_State* L, Corpse* corpse)
+    {
+        Eluna::Push(L, corpse->GetOwner());
+        return 1;
+    }
+
+    /**
      * Returns the time when the [Player] became a ghost and spawned this [Corpse].
      *
      * @return uint32 ghostTime

@@ -27,6 +27,7 @@ void Eluna::OnInstall(Vehicle* vehicle)
 {
     START_HOOK(VEHICLE_EVENT_ON_INSTALL);
     Push(vehicle);
+    Push(vehicle->GetDriver());
     CallAllFunctions(VehicleEventBindings, key);
 }
 

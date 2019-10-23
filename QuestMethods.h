@@ -78,9 +78,12 @@ namespace LuaQuest
      *
      * @return bool isRepeatable
      */
-    int IsRepeatable(lua_State* L, Quest* quest)
+    int IsRepeatable(lua_State* L, Quest* quest, Player* player)
     {
-        Eluna::Push(L, quest->IsRepeatable());
+        if (player)
+            Eluna::Push(L, quest->IsRepeatable(player));
+        else
+            Eluna::Push(L, quest->IsRepeatable());
         return 1;
     }
 
